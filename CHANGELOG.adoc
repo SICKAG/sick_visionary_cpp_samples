@@ -1,0 +1,155 @@
+= SICK Visionary C++ samples changelog
+
+This document provides a summary of all notable changes for the Visionary C++ samples collection.
+For a detailed view of what was changed, please refer to the repository's commit history.
+
+
+== 2.1.0
+
+first public release on github
+
+=== Changed
+
+* *all samples*: cleanup of the documentation (how to build the samples, consistent images of packages).
+* *sick_visionary_cpp_shared*: updated to version 2.5.0 (see link:sick_visionary_cpp_shared/CHANGELOG.adoc[])
+* removed samples for unsupported/discontinued devices
+
+=== Fixed
+
+* *SampleVisionaryTMini*: getting continuous images times out after the 1st frame. This happened on every 2nd run of the sample.
+
+=== Added
+
+* *SampleAssignIP*: new sample to demonstrate how to assign an IP address to a device.
+* *SampleAutoIP*: add possibility to scan for Cola2 devices
+* Support files for public release.
+* clang-format and pre-commit configuration
+
+=== Compatibility
+
+* *Visual Studio*: needs to be 14.0 or later
+* *gcc*: needs to be version 8.0 or later
+
+=== Supported devices
+
+* Visionary-T Mini CX (V3S105-1AAAAAA) 2.0.0
+* Visionary-S CX (V3S102-1AAAAAA and V3S102-1AABAAB) 6.0.0
+
+
+== 2.0.0
+
+=== Changed
+
+* *CMake:* building of `VisionaryAutoIPScan` can be disabled using CMake option `VISIONARY_SHARED_ENABLE_AUTOIP`
+* *CMake*: (experimental) option to build a shared library (using `BUILD_SHARED_LIBS`).
+* using new major version 2.1.0 of the `sick_visionary_cpp_shared` module and some interfaces updates (see link:sick_visionary_cpp_shared/CHANGELOG.adoc[])
+
+=== Fixed
+
+* *VisionaryAutoIPScan*: is available on Linux
+* *VisionaryData*: `getTimestampMS` returned timestamp in µs (now fixed to correctly return milliseconds).
+
+=== Added
+
+=== Known Issues
+
+=== Compatibility
+
+* *Visual Studio*: needs to be 14.0 or later
+* *gcc*: needs to be version 8.0 or later
+
+=== Supported devices
+
+* Visionary-T Mini CX versions 1.x, 2.x
+* Visionary-T CX, AG, (DT only streaming functionality)
+* Visionary-S CX
+
+
+== 1.1.0
+
+=== Added
+
+* new frame grabber class available and demonstrated in Visionary-T Mini `SampleVisionaryTMiniFrameGrabber.cpp` sample
+* uses new authentication (SICK CoLa secure user level 1 or 2) if available as required for Visionary-T Mini
+
+=== Supported devices
+
+* Visionary-T Mini CX versions 1.x, 2.x
+* Visionary-T CX, AG, (DT only streaming functionality)
+* Visionary-S CX
+
+
+== 1.0.0
+
+=== Fixed
+
+* when the device connection was lost (network disconnect or power-off) this was not properly detected and returned via the API
+* fixed sporadic error log "Malformed data, length in depth map header does not match package size" and failed connection
+
+=== Added
+
+* demonstration of external trigger in Visionary-T Mini sample
+* support for acquisition of the state map for Visionary-T Mini
+
+=== Supported devices
+
+* Visionary-T Mini CX versions 1.x
+* Visionary-T CX, AG, (DT only streaming functionality)
+
+
+== TminiV2star
+
+=== Changed
+
+* enhanced and cleaned up samples for Visionary-T Mini
+
+=== Compatibility
+
+* *Visual Studio*: needs to be 14.0 or later
+* *gcc*: needs to be version 6.0 or later
+
+
+=== Supported devices
+
+* Visionary-T Mini CX versions 1.x
+* Visionary-T CX, AG, (DT only streaming functionality)
+* Visionary-S CX
+
+
+== TofCompactV1
+
+=== Added
+
+* initial (preliminary) samples for Visionary-T Mini
+
+=== Compatibility
+
+* *Visual Studio*: needs to be 14.0 or later
+* *gcc*: needs to be version 6.0 or later
+
+
+=== Supported devices
+
+* Visionary-T Mini CX versions 1.x
+* Visionary-T CX, AG, (DT only streaming functionality)
+* Visionary-S CX
+
+
+== v0.0.1
+
+=== Added
+
+* initial samples for Visionary-S, Visionary-T
+* initial SICK AUtoIP scan sample
+
+
+=== Compatibility
+
+* *Visual Studio*: needs to be 10.0 or later
+* *gcc*: needs to be version 6.0 or later
+
+
+=== Supported devices
+
+* Visionary-T CX, AG, (DT only streaming functionality)
+* Visionary-S CX

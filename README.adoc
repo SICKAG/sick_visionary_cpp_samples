@@ -1,0 +1,21 @@
+= SICK Visionary samples for C++
+:source-highlighter: rouge
+
+
+== Getting started
+
+Ensure you have a recent version of https://cmake.org/install/[cmake] footnote:[min required >= 3.8] and a compiler available on your machine's system.
+If you are working on windows with a recent version of VisualStudio
+footnote:[>= 2017] take care to have a CMake version supporting your version of Visual Studio.
+
+After cloning this repository, open a Command Prompt window and navigate to `sick_visionary_cpp_samples` directory. Run these additional git commands to have the correct submodules in place
+footnote:[Only necessary if you have cloned from github.com repository. If you have received the C++ sample in a prepared package the git commands can be skipped.]:
+
+* `git submodule update --init`
+
+To build the samples it's suggested to proceed like this
+footnote:[Also other ways are possible]:
+
+* optionally `cmake --help` # this lists available and *default* generators
+* `cmake -B build` # create a build folder inside the cloned repository containing default cmake config - optionally specify -G <generator>
+* `cmake --build build` # to build all targets (exception: when generator for VisualStudio was used the resulting solution must be built within VisualStudio)

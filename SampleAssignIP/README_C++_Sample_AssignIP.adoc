@@ -1,0 +1,88 @@
+= C++ programming example for Visionary cameras
+:toclevels: 4
+:source-highlighter: rouge
+:toc:
+
+:link-issueform: link:../../issues/new/choose
+:url-support: https://support.sick.com
+:link-support: {url-support}[Sick Support Portal]
+:url-issuetracker: link:../../issues
+
+== Requirements
+
+Make sure you have already built the project files like described in the file `README.adoc` on the top level folder `sick_visionary_cpp_samples`.
+
+
+== Quickstart
+
+=== Using Visual studio
+
+After executing the following commands in your cloned repository the solution to be used with Visual Studio is prepared in the build directory.
+
+1. `cmake -B build -G "Visual Studio 17 2022"`
+
+
+=== Using CMake
+
+After executing the following commands in your cloned repository the executables are readily available in the build directory.
+
+1. `cmake -B build`
+2. `cmake --build build`
+
+
+== Usage
+
+When running the sample executable it will print usage information.
+
+----
+./build/SampleAssignIP [option]*
+where option is one of
+-h            show this help and exit
+-o<MAC>       mac address of the device to assign
+-c<version>   cola version (ColaB: 1, Cola2: 2)
+-i<IP>        ip address of the host in a CIDR manner,
+              i.e., using ip address and the length of network prefix seperated by /.
+              For example, -i192.168.1.10/24
+              Note the range of prefix is [0, 32].
+-d            enable dhcp
+-t<timeout>   broadcast timeout in milliseconds; default is 5000
+-g<IP>        gateway of the device
+----
+
+To actually assign an ip address the mandatory parameters -o, -c and -i need to be provided e.g. `./build/SampleAssignIP -oXX:XX:XX:XX:XX:XX -c1 -i192.168.1.10/24`.
+
+
+== Code examples
+
+This section covers the different parts of the sample in more detail and how to adjust them to work for your own applications.
+
+
+== Assign a new IP address
+
+The assign procedure consists of creating a scan object and assigning the new IP address by using this object.
+
+[source,c++]
+----
+#include <vector>
+#include <cstdint>
+
+#include "VisionaryAutoIPScan.h"
+[...]
+using namespace visionary;
+
+VisionaryAutoIPScan ipScan;
+
+bool successful = ipScan.assign(destinationMac, colaVer, ipAddr, dhcp, timeout, ipMask, ipGateway);
+----
+
+If setting the ip of the specific device was possible successful will be returned.
+
+
+== Support
+
+Depending on the nature of your question, there are two support channels:
+
+1. For questions regarding the code shared in this repo please check the FAQ first and {url-issuetracker}[search if an issue already exists].
+If a related issue doesn't exist, you can open a new issue using the {link-issueform}[issue form].
+2. For application or device specific questions look for common solutions and knowledge articles on the {link-support}.
+If your question is not answered there, open a ticket on the {link-support}.
