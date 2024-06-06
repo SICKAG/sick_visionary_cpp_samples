@@ -2,6 +2,13 @@
 :source-highlighter: rouge
 
 
+== Deprecation notice
+
+This project is no longer maintained. It will remain available for some time as read-only reference.
+
+Please switch to the successor project: https://github.com/SICKAG/sick_visionary_samples/[sick_visionary_samples].
+
+
 == Getting started
 
 Ensure you have a recent version of https://cmake.org/install/[cmake] footnote:[min required >= 3.8] and a compiler available on your machine's system.
